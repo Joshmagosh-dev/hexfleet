@@ -1,0 +1,311 @@
+:root {
+  color-scheme: dark;
+  --bg: #071013;
+  --panel: #0d1b1f;
+  --panel-strong: #12262b;
+  --line: #294249;
+  --text: #e5efe9;
+  --muted: #91a59f;
+  --accent: #d7f6ed;
+  --warning: #f6d36a;
+  --danger: #e06d5e;
+  --button: #193238;
+  --button-hover: #21464f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1120px;
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--bg);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 38px;
+  color: var(--text);
+  background: var(--button);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--button-hover);
+}
+
+button:disabled {
+  color: #5c6a67;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.command-deck {
+  min-height: calc(100vh - 36px);
+  border: 1px solid var(--line);
+  background: #091417;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 86px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font: 700 12px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 28px;
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.seed-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.seed-control label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.seed-control input {
+  width: 140px;
+  min-height: 38px;
+  padding: 0 10px;
+  color: var(--text);
+  background: #081215;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(520px, 1fr) 360px;
+  min-height: calc(100vh - 123px);
+}
+
+.hud-panel,
+.log-panel {
+  padding: 16px;
+  background: var(--panel);
+}
+
+.hud-panel {
+  border-right: 1px solid var(--line);
+}
+
+.log-panel {
+  border-left: 1px solid var(--line);
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.status-grid div,
+.position-readout,
+.action-block,
+.selected-hex {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0a171a;
+}
+
+.status-grid div {
+  min-height: 70px;
+  padding: 12px;
+}
+
+.status-grid span,
+.position-readout span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status-grid strong,
+.position-readout strong {
+  font: 700 24px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.position-readout,
+.action-block,
+.selected-hex {
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.direction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.primary-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.job-status {
+  margin: 12px 0 0;
+  min-height: 36px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.selected-hex dl {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.selected-hex dt {
+  color: var(--muted);
+}
+
+.selected-hex dd {
+  margin: 0;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.map-wrap {
+  position: relative;
+  min-height: 720px;
+  background: #071013;
+}
+
+#mapCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.log-header h2 {
+  margin: 0;
+}
+
+.log-header button {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.intel-log {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: calc(100vh - 175px);
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+.intel-log li {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0a171a;
+}
+
+.intel-log span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font: 700 11px/1.2 ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.intel-log p {
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.intel-log .warning {
+  border-color: rgba(246, 211, 106, 0.48);
+}
+
+.intel-log .warning span {
+  color: var(--warning);
+}
+
+.intel-log .danger {
+  border-color: rgba(224, 109, 94, 0.6);
+}
+
+.intel-log .danger span {
+  color: var(--danger);
+}
+
+dialog {
+  max-width: 420px;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+dialog button {
+  padding: 0 14px;
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HexFleet</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="command-deck" aria-label="HexFleet command deck">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">HEXFLEET // FIRST PLAYABLE</p>
+            <h1>Command Table</h1>
+          </div>
+          <div class="seed-control">
+            <label for="seedInput">Seed</label>
+            <input id="seedInput" type="text" value="HF-001" spellcheck="false" />
+            <button id="newRunButton" type="button">New Run</button>
+          </div>
+        </header>
+
+        <section class="layout">
+          <aside class="hud-panel" aria-label="Fleet status">
+            <div class="status-grid">
+              <div>
+                <span>Turn</span>
+                <strong id="turnValue">1</strong>
+              </div>
+              <div>
+                <span>Hull</span>
+                <strong id="hullValue">0</strong>
+              </div>
+              <div>
+                <span>Fuel</span>
+                <strong id="fuelValue">0</strong>
+              </div>
+              <div>
+                <span>Sensor</span>
+                <strong id="sensorValue">0</strong>
+              </div>
+            </div>
+
+            <div class="position-readout">
+              <span>Fleet Position</span>
+              <strong id="positionValue">0, 0</strong>
+            </div>
+
+            <div class="action-block">
+              <h2>Orders</h2>
+              <div class="direction-grid" aria-label="Move orders">
+                <button type="button" data-move="0,-1">NW</button>
+                <button type="button" data-move="1,-1">NE</button>
+                <button type="button" data-move="-1,0">W</button>
+                <button type="button" data-move="1,0">E</button>
+                <button type="button" data-move="-1,1">SW</button>
+                <button type="button" data-move="0,1">SE</button>
+              </div>
+              <div class="primary-actions">
+                <button id="scanButton" type="button">Scan</button>
+                <button id="holdButton" type="button">Hold</button>
+              </div>
+              <p id="scanStatus" class="job-status">No scan active.</p>
+            </div>
+
+            <div class="selected-hex">
+              <h2>Selected Hex</h2>
+              <dl id="hexDetails">
+                <dt>State</dt>
+                <dd>None</dd>
+              </dl>
+            </div>
+          </aside>
+
+          <section class="map-wrap" aria-label="Hex map">
+            <canvas id="mapCanvas" width="900" height="760"></canvas>
+          </section>
+
+          <aside class="log-panel" aria-label="Intel log">
+            <div class="log-header">
+              <h2>Intel Log</h2>
+              <button id="exportButton" type="button">Export State</button>
+            </div>
+            <ol id="intelLog" class="intel-log"></ol>
+          </aside>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="runDialog">
+      <h2 id="dialogTitle">Run Complete</h2>
+      <p id="dialogBody"></p>
+      <form method="dialog">
+        <button type="submit">Review Log</button>
+      </form>
+    </dialog>
+
+    <script src="./src/core/hex.js"></script>
+    <script src="./src/core/rng.js"></script>
+    <script src="./src/core/game.js"></script>
+    <script src="./src/ui/renderMap.js"></script>
+    <script src="./src/main.js"></script>
+  </body>
+</html>
