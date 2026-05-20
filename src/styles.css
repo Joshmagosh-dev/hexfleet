@@ -191,6 +191,26 @@ h2 {
   margin-top: 8px;
 }
 
+.upgrade-grid,
+.weapon-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.weapon-list button.selected {
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+.combat-status {
+  min-height: 42px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .job-status {
   margin: 12px 0 0;
   min-height: 36px;
@@ -239,6 +259,11 @@ h2 {
 
 .log-header h2 {
   margin: 0;
+}
+
+.log-actions {
+  display: flex;
+  gap: 6px;
 }
 
 .log-header button {
@@ -292,6 +317,14 @@ h2 {
 
 .intel-log .danger span {
   color: var(--danger);
+}
+
+.intel-log .reward {
+  border-color: rgba(127, 209, 139, 0.55);
+}
+
+.intel-log .reward span {
+  color: #7fd18b;
 }
 
 dialog {

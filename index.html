@@ -11,7 +11,7 @@
       <section class="command-deck" aria-label="HexFleet command deck">
         <header class="top-bar">
           <div>
-            <p class="eyebrow">HEXFLEET // FIRST PLAYABLE</p>
+            <p class="eyebrow">HEXFLEET // V0.2 COMBAT SALVAGE</p>
             <h1>Command Table</h1>
           </div>
           <div class="seed-control">
@@ -40,6 +40,14 @@
                 <span>Sensor</span>
                 <strong id="sensorValue">0</strong>
               </div>
+              <div>
+                <span>Scrap</span>
+                <strong id="scrapValue">0</strong>
+              </div>
+              <div>
+                <span>Fleet Tier</span>
+                <strong id="fleetTierValue">1</strong>
+              </div>
             </div>
 
             <div class="position-readout">
@@ -60,8 +68,31 @@
               <div class="primary-actions">
                 <button id="scanButton" type="button">Scan</button>
                 <button id="holdButton" type="button">Hold</button>
+                <button id="harvestButton" type="button">Harvest</button>
+                <button id="engageButton" type="button">Engage</button>
               </div>
               <p id="scanStatus" class="job-status">No scan active.</p>
+            </div>
+
+            <div class="action-block" id="combatPanel">
+              <h2>Combat</h2>
+              <div id="combatStatus" class="combat-status">No active combat.</div>
+              <div id="weaponList" class="weapon-list"></div>
+              <div class="primary-actions">
+                <button id="attackButton" type="button">Attack</button>
+                <button id="reloadButton" type="button">Reload</button>
+                <button id="fleeButton" type="button">Flee</button>
+              </div>
+            </div>
+
+            <div class="action-block">
+              <h2>Upgrades</h2>
+              <div class="upgrade-grid">
+                <button type="button" data-upgrade="mining">Mining</button>
+                <button type="button" data-upgrade="combat">Combat</button>
+                <button type="button" data-upgrade="armor">Armor</button>
+              </div>
+              <p id="upgradeStatus" class="job-status">Upgrades cost scrap and affect future orders.</p>
             </div>
 
             <div class="selected-hex">
@@ -80,7 +111,11 @@
           <aside class="log-panel" aria-label="Intel log">
             <div class="log-header">
               <h2>Intel Log</h2>
-              <button id="exportButton" type="button">Export State</button>
+              <div class="log-actions">
+                <button id="saveButton" type="button">Save</button>
+                <button id="loadButton" type="button">Load</button>
+                <button id="exportButton" type="button">Export</button>
+              </div>
             </div>
             <ol id="intelLog" class="intel-log"></ol>
           </aside>
@@ -98,6 +133,9 @@
 
     <script src="./src/core/hex.js"></script>
     <script src="./src/core/rng.js"></script>
+    <script src="./src/core/tiers.js"></script>
+    <script src="./src/core/weapons.js"></script>
+    <script src="./src/core/persistence.js"></script>
     <script src="./src/core/game.js"></script>
     <script src="./src/ui/renderMap.js"></script>
     <script src="./src/main.js"></script>

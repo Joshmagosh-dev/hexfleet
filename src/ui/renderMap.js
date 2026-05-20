@@ -116,6 +116,22 @@ function drawHex(ctx, metrics, hex, state, selectedKey) {
     ctx.fillText("dr", center.x, center.y + 1);
   }
 
+  if (!isUnknown && hex.content?.type === "salvage") {
+    ctx.fillStyle = "#f6d36a";
+    ctx.font = `${Math.round(metrics.size * 0.32)}px ui-monospace, monospace`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(`S${hex.content.tier}`, center.x, center.y + metrics.size * 0.42);
+  }
+
+  if (!isUnknown && hex.content?.type === "enemy") {
+    ctx.fillStyle = "#e06d5e";
+    ctx.font = `${Math.round(metrics.size * 0.34)}px ui-monospace, monospace`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(`E${hex.content.tier}`, center.x, center.y + metrics.size * 0.42);
+  }
+
   if (isFleet) {
     ctx.fillStyle = "#d7f6ed";
     ctx.beginPath();
